@@ -5,24 +5,33 @@ import cors from "cors";
 
 import router from "./routes/router";
 
-dotenv.config();
+dotenv.config({ path: "./env/.env" });
 
 const app = express();
 
-// Morgan config
+// ------------------ Server config ------------------
+// Production env config
+if (process.env.NODE_ENV === "production") {
+  dotenv.config({ path: "./env/.env.production" });
+}
+
+// TODO: Logger middleware (winston y debug)
+
+// Morgan middleware config
 app.use(morgan("dev"));
 
-// ------------------ Config ------------------
+// Port config
 app.set("port", process.env.PORT ?? 3001);
-// TODO: investigar sobre CORS
-app.use(
-  cors({
-    origin: "*",
-  })
-);
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
+// Cors config
+app.use(cors({ origin: "*" }));
+
+// JSON body config
+app.use(express.json());
+
+// router config
 app.use("/api", router);
+
+// TODO: Global error handler
 
 export default app;
