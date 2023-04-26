@@ -4,6 +4,7 @@ import morgan from "morgan";
 import cors from "cors";
 
 import router from "./routes/router";
+import { errorHandlerMiddleware } from "./middlewares/errorHandlerMiddleware";
 
 dotenv.config({ path: "./env/.env" });
 
@@ -29,9 +30,10 @@ app.use(cors({ origin: "*" }));
 // JSON body config
 app.use(express.json());
 
-// router config
+// Router config
 app.use("/api", router);
 
-// TODO: Global error handler
+// Error Handler Middleware
+app.use(errorHandlerMiddleware);
 
 export default app;

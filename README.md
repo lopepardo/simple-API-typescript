@@ -11,3 +11,4 @@ Este proyecto busca contruir un template con toda la configuración inicial para
 - Seguridad (JWT)
 - Pruebas unitarias
 - Documentación con Swagger
+- CI/CD

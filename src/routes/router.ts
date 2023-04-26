@@ -4,6 +4,8 @@ import { customerRoutes } from "./customerRoutes";
 
 const router = express.Router();
 
+// TODO: Agregar validación de entrada de datos
+// TODO: protección contra ataques XSS, CSRF y SQL injection
 router.get("/", loadApiEndpoints);
 
 router.use("/customers", customerRoutes);
