@@ -1,27 +1,39 @@
-interface Customer {
+import { StatusCodes } from "http-status-codes";
+
+import { ErrorHandler } from "../middlewares/errorHandlerMiddleware";
+
+export interface Customer {
   id: number;
   name: string;
   email: string;
 }
 
-const customers: Customer[] = [
+export const customers: Customer[] = [
   { id: 1, name: "John Doe", email: "johndoe@example.com" },
   { id: 2, name: "Jane Doe", email: "janedoe@example.com" },
   { id: 3, name: "Bob Smith", email: "bobsmith@example.com" },
 ];
 
-const getCustomers = (): Customer[] => {
+export const getCustomers = (): Customer[] => {
+  if (customers.length === 0) {
+    throw new ErrorHandler(StatusCodes.NOT_FOUND, "No customers found");
+  }
   return customers;
 };
 
-const getCustomerById = (id: number): Customer | undefined => {
-  return customers.find((c) => c.id === id);
+export const getCustomerById = (id: number): Customer | undefined => {
+  const costumer = customers.find((c) => c.id === id);
+  if (!costumer) {
+    throw new ErrorHandler(
+      StatusCodes.NOT_FOUND,
+      `Customer with ID ${id} not found`
+    );
+  }
+  return costumer;
 };
 
-const createCustomer = (customer: Customer): Customer => {
+export const createCustomer = (customer: Customer): Customer => {
   const newCustomer = { ...customer, id: customers.length + 1 };
   customers.push(newCustomer);
   return newCustomer;
 };
-
-export { Customer, getCustomers, getCustomerById, createCustomer };

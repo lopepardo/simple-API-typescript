@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { StatusCodes } from "http-status-codes";
 
 export const loadApiEndpoints = (
   req: Request,
@@ -6,7 +7,7 @@ export const loadApiEndpoints = (
   next: NextFunction
 ) => {
   try {
-    return res.status(200).json({ status: "Successful!" });
+    return res.status(StatusCodes.OK).json({ status: "Successful!" });
   } catch (error) {
     console.log("Error in loadApiEndpoints: ", error);
     next(error);

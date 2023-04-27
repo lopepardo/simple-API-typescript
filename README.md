@@ -4,10 +4,8 @@ Este proyecto busca contruir un template con toda la configuración inicial para
 
 ## TODO:
 
-- Archivo de configuración del servidor
 - ESlint y Prettier
-- Validador
-- Middlewares
+- Middlewares (Logger & Validador)
 - Seguridad (JWT)
 - Pruebas unitarias
 - Documentación con Swagger
