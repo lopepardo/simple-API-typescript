@@ -5,6 +5,9 @@ module.exports = {
     "^src/(.*)": "<rootDir>/src/$1",
   },
   modulePaths: ["<rootDir>/src"],
+  transform: {
+    "^.+\\.tsx?$": "ts-jest",
+  },
   globals: {
     "ts-jest": {
       tsconfig: "tsconfig.json",
