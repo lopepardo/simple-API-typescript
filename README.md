@@ -4,8 +4,7 @@ Este proyecto busca contruir un template con toda la configuración inicial para
 
 ## TODO:
 
-- Middlewares (Validador)
-- Seguridad (JWT)
+- Protección contra ataques XSS, CSRF y SQL injection
 - Pruebas unitarias
 - Documentación con Swagger
 - CI/CD

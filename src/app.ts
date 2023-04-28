@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(morgan("dev"));
 
 // Port config
-app.set("port", process.env.PORT ?? 3001);
+app.set("port", Number(process.env.PORT) ?? 3001);
 
 // Cors config
 app.use(cors({ origin: "*" }));

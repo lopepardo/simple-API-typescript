@@ -1,13 +1,20 @@
 import express from "express";
-import { loadApiEndpoints } from "../controllers/api";
+
 import { customerRoutes } from "./customerRoutes";
+
+import { loadApiEndpoints } from "../controllers/api";
+import { generateJWTAccess } from "../controllers/loginController";
+import { loginSchema } from "../validation-schemas/loginValidations";
+
+import { validateBodyRequest, authMiddleware } from "../middlewares";
 
 const router = express.Router();
 
-// TODO: protección contra ataques XSS, CSRF y SQL injection
-router.get("/", loadApiEndpoints);
+router.get("/login", validateBodyRequest(loginSchema), generateJWTAccess);
 
-router.use("/customers", customerRoutes);
+router.get("/", authMiddleware, loadApiEndpoints);
+
+router.use("/customers", authMiddleware, customerRoutes);
 
 // router.use("/products", productRoutes);
 
