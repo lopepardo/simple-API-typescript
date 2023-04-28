@@ -4,7 +4,7 @@ Este proyecto busca contruir un template con toda la configuración inicial para
 
 ## TODO:
 
-- Middlewares (Logger & Validador)
+- Middlewares (Validador)
 - Seguridad (JWT)
 - Pruebas unitarias
 - Documentación con Swagger

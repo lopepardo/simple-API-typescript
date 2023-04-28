@@ -18,8 +18,6 @@ if (process.env.NODE_ENV === "production") {
   dotenv.config({ path: "./env/.env.production" });
 }
 
-// TODO: Logger middleware (winston y debug)
-
 // Morgan middleware config
 app.use(morgan("dev"));
 
