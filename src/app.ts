@@ -4,7 +4,9 @@ import morgan from "morgan";
 import cors from "cors";
 
 import router from "./routes/router";
+
 import { errorHandlerMiddleware } from "./middlewares/errorHandlerMiddleware";
+import { routeNotFoundMiddleware } from "./middlewares/routeNotFoundMiddleware";
 
 dotenv.config({ path: "./env/.env" });
 
@@ -30,10 +32,13 @@ app.use(cors({ origin: "*" }));
 // JSON body config
 app.use(express.json());
 
-// Router config
+// Routers config
 app.use("/api", router);
 
 // Error Handler Middleware
 app.use(errorHandlerMiddleware);
+
+// Route not found handler middleware
+app.use(routeNotFoundMiddleware);
 
 export default app;
