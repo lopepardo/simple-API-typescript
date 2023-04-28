@@ -5,8 +5,7 @@ import cors from "cors";
 
 import router from "./routes/router";
 
-import { errorHandlerMiddleware } from "./middlewares/errorHandlerMiddleware";
-import { routeNotFoundMiddleware } from "./middlewares/routeNotFoundMiddleware";
+import { errorHandlerMiddleware, routeNotFoundMiddleware } from "./middlewares";
 
 dotenv.config({ path: "./env/.env" });
 

@@ -1,9 +1,17 @@
 import express from "express";
+
+// ----- Controllers -----
 import {
   getCustomersHandler,
   getCustomerByIdHandler,
   createCustomerHandler,
 } from "../controllers/customerController";
+
+// ----- Middlewares -----
+import { validateBodyRequest } from "../middlewares";
+
+// ----- Validation schemas -----
+import { customerSchema } from "../validation-schemas/customerValidations";
 
 const router = express.Router();
 
@@ -14,6 +22,6 @@ router.get("/", getCustomersHandler);
 router.get("/:id", getCustomerByIdHandler);
 
 // Ruta para crear un nuevo cliente
-router.post("/", createCustomerHandler);
+router.post("/", validateBodyRequest(customerSchema), createCustomerHandler);
 
 export { router as customerRoutes };

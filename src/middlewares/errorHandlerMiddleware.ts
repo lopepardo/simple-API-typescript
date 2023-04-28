@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
@@ -16,11 +17,7 @@ export const errorHandlerMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  if (!error.statusCode) {
-    console.log(error);
-    error.statusCode = StatusCodes.INTERNAL_SERVER_ERROR;
-    error.message = "Internal Server Error";
-  }
-  const { statusCode, message } = error;
+  const statusCode = error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
+  const message = error.message || "Internal Server Error";
   res.status(statusCode).json({ errorMessage: message });
 };

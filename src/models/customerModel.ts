@@ -1,6 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-
-import { ErrorHandler } from "../middlewares/errorHandlerMiddleware";
+import { ErrorHandler } from "../middlewares";
 
 export interface Customer {
   id: number;
