@@ -4,7 +4,7 @@ import { customerRoutes } from "./customerRoutes";
 
 import { loadApiEndpoints } from "../controllers/api";
 import { generateJWTAccess } from "../controllers/loginController";
-import { loginSchema } from "../validation-schemas/loginValidations";
+import { loginSchema } from "../validation-schemas";
 
 import { validateBodyRequest, authMiddleware } from "../middlewares";
 

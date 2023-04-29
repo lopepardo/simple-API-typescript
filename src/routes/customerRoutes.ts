@@ -11,7 +11,7 @@ import {
 import { validateBodyRequest } from "../middlewares";
 
 // ----- Validation schemas -----
-import { customerSchema } from "../validation-schemas/customerValidations";
+import { customerSchema } from "../validation-schemas";
 
 const router = express.Router();
 
