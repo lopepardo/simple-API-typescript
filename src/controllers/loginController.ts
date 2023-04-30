@@ -5,6 +5,7 @@ import { StatusCodes } from "http-status-codes";
 
 const secretKey = String(process.env.SECRET_KEY);
 
+// Controller to generate JWT Access Token
 export const generateJWTAccess = (
   req: Request,
   res: Response,

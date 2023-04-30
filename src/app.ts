@@ -29,7 +29,7 @@ app.use(cors({ origin: "*" }));
 // JSON body config
 app.use(express.json());
 
-// Routers config
+// Router config
 app.use("/api", router);
 
 // Error Handler Middleware

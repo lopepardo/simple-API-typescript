@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
-export const loadApiEndpoints = (
+// Controller to endpoint example
+export const endpointExample = (
   req: Request,
   res: Response,
   next: NextFunction

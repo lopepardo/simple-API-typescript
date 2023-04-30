@@ -7,7 +7,7 @@ export interface Customer {
   email: string;
 }
 
-export const customers: Customer[] = [
+const customers: Customer[] = [
   { id: 1, name: "John Doe", email: "johndoe@example.com" },
   { id: 2, name: "Jane Doe", email: "janedoe@example.com" },
   { id: 3, name: "Bob Smith", email: "bobsmith@example.com" },

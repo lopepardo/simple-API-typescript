@@ -1,6 +1,6 @@
 import app from "./app";
 
-const server = app.listen(app.get("port"), () => {
+app.listen(app.get("port"), () => {
   console.log(
     "\n\x1b[36m%s\x1b[0m",
     "==============================================================="
@@ -17,5 +17,3 @@ const server = app.listen(app.get("port"), () => {
     "===============================================================\n"
   );
 });
-
-export default server;

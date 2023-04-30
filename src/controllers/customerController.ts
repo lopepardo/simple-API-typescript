@@ -1,12 +1,14 @@
 import { NextFunction, Request, Response } from "express";
+import { StatusCodes } from "http-status-codes";
+// ------------------ Import Models ------------------
 import {
   Customer,
   getCustomers,
   getCustomerById,
   createCustomer,
-} from "../models/customerModel";
-import { StatusCodes } from "http-status-codes";
+} from "../models";
 
+// Controller to get all customers
 export const getCustomersHandler = (
   req: Request,
   res: Response,
@@ -21,6 +23,7 @@ export const getCustomersHandler = (
   }
 };
 
+// Controller to get customer by id
 export const getCustomerByIdHandler = (
   req: Request,
   res: Response,
@@ -36,6 +39,7 @@ export const getCustomerByIdHandler = (
   }
 };
 
+// Controller to create a new customer
 export const createCustomerHandler = (
   req: Request,
   res: Response,
